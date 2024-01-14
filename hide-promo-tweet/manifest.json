@@ -1,0 +1,10 @@
+{
+  "name": "hide-promo-tweet",
+  "description": "Twitterのプロモーションツイートを非表示にします",
+  "version": "1.0",
+  "content_scripts": [{
+    "js": ["script.js"],
+    "matches": ["https://twitter.com/*"]
+  }],
+  "manifest_version": 3
+}

@@ -1,0 +1,10 @@
+{
+  "name": "resize-twitter-pic",
+  "description": "Twitterの画像をリサイズします",
+  "version": "1.0",
+  "content_scripts": [{
+    "js": ["script.js"],
+    "matches": ["https://pbs.twimg.com/media/*"]
+  }],
+  "manifest_version": 3
+}
