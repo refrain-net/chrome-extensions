@@ -1,7 +1,7 @@
 {
   "name": "hide-zombie-account",
   "description": "Twitterのゾンビアカウントのリプライを非表示にします",
-  "version": "1.0",
+  "version": "2.0",
   "content_scripts": [{
     "js": ["script.js"],
     "matches": ["https://twitter.com/*", "https://x.com/*"]
