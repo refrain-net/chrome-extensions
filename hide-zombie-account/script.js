@@ -10,7 +10,8 @@ requestAnimationFrame(function hide () {
   if (!/https:\/\/x\.com\/.+\/status\/.+/.test(href)) return;
   const [domain, userid, status, postid] = location.href.split('://')[1].split('/');
   const elements = [...document.querySelectorAll('[data-testid="cellInnerDiv"]')];
-  const usernames = elements.map(element => [...element.querySelectorAll('a')].filter(anchor => (anchor.href.startsWith('https://twitter.com/') || anchor.href.startsWith('https://x.com/')) && anchor.textContent.startsWith('@'))[0]?.textContent).filter(username => username !== userid);
+  const usernames = elements.map(element => [...element.querySelectorAll('a')].filter(anchor => (anchor.href.startsWith('https://twitter.com/') || anchor.href.startsWith('https://x.com/')) && anchor.textContent.startsWith('@'))[0]?.textContent);
+console.log(usernames);
   const count = usernames.reduce((acc, cur) => {
     acc[cur] = (acc[cur] || 0) + 1;
     return acc;
@@ -18,6 +19,7 @@ requestAnimationFrame(function hide () {
   let username;
   elements.forEach((element, index) => {
     username = usernames[index];
+    if (username === `@${userid}`) return;
     if (count[username] < 3) return;
     element.style.display = 'none';
   });
